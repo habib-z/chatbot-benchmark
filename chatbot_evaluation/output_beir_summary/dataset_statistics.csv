@@ -1,0 +1,7 @@
+dataset,num_docs,num_queries,num_qrels,avg_rels_per_query,queries_with_2+_rels (%),rel_score_distribution
+abank_beir,106,119,120,1.0,0.0,{1: 120}
+cqad_upstack_mathematica_retrieval_fa_beir,16705,804,1359,1.69,27.08,{1: 1359}
+miracl_fa_beir,2207172,632,1315,2.08,50.55,{1: 1315}
+persian_web_document_retrieval_beir,166819,951,18309,19.23,98.53,"{1: 8525, 0: 9784}"
+scifact_fa_beir,5183,300,340,1.13,7.64,{1: 340}
+touche2020_fa_beir,382545,49,2215,44.3,98.0,"{1: 297, 0: 1282, 2: 636}"

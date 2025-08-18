@@ -1,0 +1,6 @@
+version: "1.0"
+type: "factual_correctness"
+lang: "fa"
+created: "2025-08-17"
+owner: "ai-team"
+notes: "Persian factual correctness via LLM judge; returns raw verdict + F1/Fβ"

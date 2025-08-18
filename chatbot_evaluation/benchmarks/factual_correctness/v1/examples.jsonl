@@ -1,0 +1,41 @@
+{"input":{
+  "question":"مهلت بازگشت کالا چقدر است؟",
+  "reference_text":"مهلت بازگشت ۷ روز کاری از تاریخ تحویل است.",
+  "assistant_text":"مهلت بازگشت ۷ روز کاری است."
+},
+"output":{
+  "assistant_claims":["مهلت بازگشت ۷ روز کاری است"],
+  "reference_claims":["مهلت بازگشت ۷ روز کاری از تاریخ تحویل است"],
+  "correct_claims":["مهلت بازگشت ۷ روز کاری است"],
+  "missing_ref_claims":[],
+  "incorrect_claims":[],
+  "neutral_extra_claims":[]
+}}
+
+{"input":{
+  "question":"مهلت بازگشت کالا چقدر است؟",
+  "reference_text":"مهلت بازگشت ۷ روز کاری از تاریخ تحویل است.",
+  "assistant_text":"مهلت بازگشت ۱۰ روز تقویمی است."
+},
+"output":{
+  "assistant_claims":["مهلت بازگشت ۱۰ روز تقویمی است"],
+  "reference_claims":["مهلت بازگشت ۷ روز کاری از تاریخ تحویل است"],
+  "correct_claims":[],
+  "missing_ref_claims":["مهلت بازگشت ۷ روز کاری از تاریخ تحویل است"],
+  "incorrect_claims":["مهلت بازگشت ۱۰ روز تقویمی است"],
+  "neutral_extra_claims":[]
+}}
+
+{"input":{
+  "question":"چطور درخواست بازگشت ثبت کنم؟",
+  "reference_text":"از منوی بازگشت، فرم را پر کنید.",
+  "assistant_text":"از منوی بازگشت فرم را پر کنید و اگر کالا معیوب است، عکس هم بارگذاری کنید."
+},
+"output":{
+  "assistant_claims":["از منوی بازگشت فرم را پر کنید","اگر کالا معیوب است، عکس بارگذاری کنید"],
+  "reference_claims":["از منوی بازگشت، فرم را پر کنید"],
+  "correct_claims":["از منوی بازگشت فرم را پر کنید"],
+  "missing_ref_claims":[],
+  "incorrect_claims":[],
+  "neutral_extra_claims":["اگر کالا معیوب است، عکس بارگذاری کنید"]
+}}

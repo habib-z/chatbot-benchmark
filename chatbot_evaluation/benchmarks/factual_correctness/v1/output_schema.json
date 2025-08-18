@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FactualCorrectnessVerdict",
+  "type": "object",
+  "required": [
+    "assistant_claims",
+    "reference_claims",
+    "correct_claims",
+    "missing_ref_claims",
+    "incorrect_claims",
+    "neutral_extra_claims"
+  ],
+  "properties": {
+    "assistant_claims": { "type": "array", "items": { "type": "string" } },
+    "reference_claims": { "type": "array", "items": { "type": "string" } },
+    "correct_claims": { "type": "array", "items": { "type": "string" } },
+    "missing_ref_claims": { "type": "array", "items": { "type": "string" } },
+    "incorrect_claims": { "type": "array", "items": { "type": "string" } },
+    "neutral_extra_claims": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

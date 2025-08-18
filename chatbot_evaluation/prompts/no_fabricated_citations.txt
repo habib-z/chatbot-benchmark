@@ -1,0 +1,26 @@
+# metric: no_fabricated_citations
+
+## prompt key: multi_turn_aspect_critic_prompt
+Evaluate the Input based on the criterial defined. Use only 'Yes' (1) and 'No' (0) as verdict.
+Criteria Definition: Does the response invent sources, quotes, or citations not grounded in the provided contexts or reference?
+Please return the output in a JSON format that complies with the following schema as specified in JSON Schema:
+{"properties": {"reason": {"description": "Reason for the verdict", "title": "Reason", "type": "string"}, "verdict": {"description": "The verdict (0 or 1) for the submission", "title": "Verdict", "type": "integer"}}, "required": ["reason", "verdict"], "title": "AspectCriticOutput", "type": "object"}Do not use single quotes in your response but double quotes,properly escaped with a backslash.
+
+-----------------------------
+
+Now perform the same with the following input
+Input: (None)
+Output: 
+
+
+## prompt key: single_turn_aspect_critic_prompt
+Evaluate the Input based on the criterial defined. Use only 'Yes' (1) and 'No' (0) as verdict.
+Criteria Definition: Does the response invent sources, quotes, or citations not grounded in the provided contexts or reference?
+Please return the output in a JSON format that complies with the following schema as specified in JSON Schema:
+{"properties": {"reason": {"description": "Reason for the verdict", "title": "Reason", "type": "string"}, "verdict": {"description": "The verdict (0 or 1) for the submission", "title": "Verdict", "type": "integer"}}, "required": ["reason", "verdict"], "title": "AspectCriticOutput", "type": "object"}Do not use single quotes in your response but double quotes,properly escaped with a backslash.
+
+-----------------------------
+
+Now perform the same with the following input
+Input: (None)
+Output: 

@@ -1,0 +1,26 @@
+experiment:
+  name: scifact_test
+  dataset_path: dataset/scifact_fa_ds
+  retrievers:
+    - type: dense
+      model: Snowflake/snowflake-arctic-embed-l-v2.0
+      device: auto
+    - type: bm25
+      index_path: bm25_index/
+    - type: hybrid
+      dense_weight: 0.7
+      sparse_weight: 0.3
+  reranker:
+    type: cross_encoder
+    model: cross-encoder/ms-marco-MiniLM-L-6-v2
+
+qdrant:
+  host: 185.255.91.144
+  port: 30081
+  collection_prefix: scifact
+
+ingestion:
+  batch_size: 256
+
+retrieval:
+  top_k: 10
