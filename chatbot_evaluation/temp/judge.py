@@ -17,9 +17,9 @@ def get_local_judge(model="/models/abhishekchohan_gemma-3-12b-it-quantized-W4A16
     llm = ChatOpenAI(
         model=model,
         openai_api_key="EMPTY",  # vLLM ignores key, but LangChain requires it
-        openai_api_base="http://185.255.91.145:30080/v1",
-        temperature=0.0,
-        max_tokens=4096,
+        openai_api_base="http://185.255.91.144:30080/v1",
+        temperature=0.6,
+        max_tokens=2048,
     )
     evaluator_llm = LangchainLLMWrapper(llm)
     return evaluator_llm

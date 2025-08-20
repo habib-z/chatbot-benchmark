@@ -9,9 +9,9 @@ from file_metric_factual import FactualFromFiles, load_dataset
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base_dir", default="benchmarks/factual_correctness/v1",
+    ap.add_argument("--base_dir", default="benchmarks/factual_correctness/v0",
                     help="folder containing instruction.en.md, output_schema.json, examples.jsonl, rubric.yaml")
-    ap.add_argument("--samples", default="benchmarks/factual_correctness/v1/datasets/samples.clientA.v1.jsonl")
+    ap.add_argument("--samples", default="benchmarks/factual_correctness/v0/datasets/samples.clientA.v0.jsonl")
     ap.add_argument("--model", default="gpt-4o-mini", help="judge model name (OpenAI or your vLLM-compatible)")
     args = ap.parse_args()
 

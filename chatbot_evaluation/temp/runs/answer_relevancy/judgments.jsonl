@@ -1,0 +1,100 @@
+{
+  "qid": null,
+  "user_input": "از کجا برای پروفایلم عکس بزارم؟",
+  "response": "پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.<end_of_turn>",
+  "answer_relevancy_score": 0.507327246461608,
+  "answer_relevancy_details": {
+    "user_input": "از کجا برای پروفایلم عکس بزارم؟",
+    "response": "پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.<end_of_turn>",
+    "generation": {
+      "instruction": "Generate a question for the given answer and Identify if answer is noncommittal. Give noncommittal as 1 if the answer is noncommittal and 0 if the answer is committal. A noncommittal answer is one that is evasive, vague, or ambiguous. For example, \"I don't know\" or \"I'm not sure\" are noncommittal answers",
+      "outputs": [
+        {
+          "question": "How can a user change their profile picture?",
+          "noncommittal": 0
+        },
+        {
+          "question": "How can a user change their profile picture?",
+          "noncommittal": 0
+        },
+        {
+          "question": "How can a user change their profile picture?",
+          "noncommittal": 0
+        }
+      ],
+      "strictness": 3
+    },
+    "similarity": {
+      "generated_questions": [
+        "How can a user change their profile picture?",
+        "How can a user change their profile picture?",
+        "How can a user change their profile picture?"
+      ],
+      "cosine_per_question": [
+        0.507327246461608,
+        0.507327246461608,
+        0.507327246461608
+      ],
+      "mean_cosine": 0.507327246461608
+    },
+    "noncommittal": {
+      "flags": [
+        0,
+        0,
+        0
+      ],
+      "any_noncommittal": false
+    },
+    "score": 0.507327246461608
+  }
+}
+{
+  "qid": null,
+  "user_input": "سلام آبانک چیه؟",
+  "response": "من دستیار آبانک هستم و برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.<end_of_turn>",
+  "answer_relevancy_score": 0.18409306923712218,
+  "answer_relevancy_details": {
+    "user_input": "سلام آبانک چیه؟",
+    "response": "من دستیار آبانک هستم و برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.<end_of_turn>",
+    "generation": {
+      "instruction": "Generate a question for the given answer and Identify if answer is noncommittal. Give noncommittal as 1 if the answer is noncommittal and 0 if the answer is committal. A noncommittal answer is one that is evasive, vague, or ambiguous. For example, \"I don't know\" or \"I'm not sure\" are noncommittal answers",
+      "outputs": [
+        {
+          "question": "What is the purpose of the application?",
+          "noncommittal": 0
+        },
+        {
+          "question": "What is the purpose of the application?",
+          "noncommittal": 0
+        },
+        {
+          "question": "What is the purpose of the application?",
+          "noncommittal": 0
+        }
+      ],
+      "strictness": 3
+    },
+    "similarity": {
+      "generated_questions": [
+        "What is the purpose of the application?",
+        "What is the purpose of the application?",
+        "What is the purpose of the application?"
+      ],
+      "cosine_per_question": [
+        0.1840930677804077,
+        0.1840930677804077,
+        0.18409307215055115
+      ],
+      "mean_cosine": 0.18409306923712218
+    },
+    "noncommittal": {
+      "flags": [
+        0,
+        0,
+        0
+      ],
+      "any_noncommittal": false
+    },
+    "score": 0.18409306923712218
+  }
+}

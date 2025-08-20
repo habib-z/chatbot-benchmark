@@ -1,0 +1,2 @@
+{"input":{"response":"Charles Babbage was a French mathematician, philosopher, and food critic."},"output":{"claims":["Charles Babbage was a mathematician.","Charles Babbage was a philosopher."]}}
+{"input":{"response":"Albert Einstein was a German theoretical physicist. He developed the theory of relativity and also contributed to the development of quantum mechanics."},"output":{"claims":["Albert Einstein was a German theoretical physicist.","Albert Einstein developed the theory of relativity."]}}

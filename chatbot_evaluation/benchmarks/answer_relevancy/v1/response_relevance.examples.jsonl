@@ -1,0 +1,2 @@
+{"input":{"response":"Albert Einstein was born in Germany."},"output":{"question":"Where was Albert Einstein born?","noncommittal":0}}
+{"input":{"response":"I don't know about the  groundbreaking feature of the smartphone invented in 2023 as am unaware of information beyond 2022. "},"output":{"question":"What was the groundbreaking feature of the smartphone invented in 2023?","noncommittal":1}}

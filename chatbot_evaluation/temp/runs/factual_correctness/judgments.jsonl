@@ -1,0 +1,209 @@
+{
+  "qid": null,
+  "response": "پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.<end_of_turn>",
+  "reference": "  جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید، سپس روی جزئیات حساب کاربری کلیک کنید در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید.",
+  "factual_correctness_score": 0.86,
+  "factual_correctness_details": {
+    "response": "پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.<end_of_turn>",
+    "reference": "  جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید، سپس روی جزئیات حساب کاربری کلیک کنید در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید.",
+    "decomposition": {
+      "instruction": "Decompose and break down each of the input sentences into one or more standalone statements. Each statement should be a standalone claim that can be independently verified.\nFollow the level of atomicity and coverage as shown in the examples.",
+      "response": {
+        "input": {
+          "response": "پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.<end_of_turn>"
+        },
+        "output": {
+          "claims": [
+            "پس از ورود به بخش «تنظیمات» امکان انجام اقداماتی برای کاربر فراهم است.",
+            "در بخش «تنظیمات» یک تصویر حساب کاربری وجود دارد.",
+            "کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری را برای کاربر فراهم می‌کند."
+          ]
+        }
+      },
+      "reference": {
+        "input": {
+          "response": "  جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید، سپس روی جزئیات حساب کاربری کلیک کنید در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید."
+        },
+        "output": {
+          "claims": [
+            "جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید.",
+            "سپس روی جزئیات حساب کاربری کلیک کنید.",
+            "در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید."
+          ]
+        }
+      }
+    },
+    "nli": {
+      "instruction": "Your task is to judge each hypothesis statement against the provided CONTEXT. Return verdict=1 if the statement can be directly inferred from the context; otherwise verdict=0.",
+      "a2r": {
+        "input": {
+          "context": "  جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید، سپس روی جزئیات حساب کاربری کلیک کنید در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید.",
+          "statements": [
+            "پس از ورود به بخش «تنظیمات» امکان انجام اقداماتی برای کاربر فراهم است.",
+            "در بخش «تنظیمات» یک تصویر حساب کاربری وجود دارد.",
+            "کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری را برای کاربر فراهم می‌کند."
+          ]
+        },
+        "output": {
+          "statements": [
+            {
+              "statement": "پس از ورود به بخش «تنظیمات» امکان انجام اقداماتی برای کاربر فراهم است.",
+              "reason": "The context mentions clicking on the profile picture, which leads to account details where users can choose a profile picture, implying actions are available.",
+              "verdict": 1
+            },
+            {
+              "statement": "در بخش «تنظیمات» یک تصویر حساب کاربری وجود دارد.",
+              "reason": "The context describes a process where you can select a profile picture in the account details section.",
+              "verdict": 1
+            },
+            {
+              "statement": "کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری را برای کاربر فراهم می‌کند.",
+              "reason": "The context explicitly states that clicking on the profile picture in the account details allows users to select and change their profile picture.",
+              "verdict": 1
+            }
+          ]
+        }
+      },
+      "r2a": {
+        "input": {
+          "context": "پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.<end_of_turn>",
+          "statements": [
+            "جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید.",
+            "سپس روی جزئیات حساب کاربری کلیک کنید.",
+            "در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید."
+          ]
+        },
+        "output": {
+          "statements": [
+            {
+              "statement": "جهت بارگزاری عکس پروفایل، ابتدا از صفحه اصلی روی آدمک بالای صفحه سمت چپ کلیک کنید.",
+              "reason": "The context does not mention clicking on an icon on the main page.",
+              "verdict": 0
+            },
+            {
+              "statement": "سپس روی جزئیات حساب کاربری کلیک کنید.",
+              "reason": "The context states 'پس از ورود به بخش «تنظیمات» و کلیک بر روی تصویر حساب کاربری در قسمت «جزئیات حساب کاربری»'. This implies clicking on 'جزئیات حساب کاربری'.",
+              "verdict": 1
+            },
+            {
+              "statement": "در این بخش شما می توانید برای پروفایل خود عکس انتخاب کنید.",
+              "reason": "The context states 'در قسمت «جزئیات حساب کاربری» امکان انتخاب و تغییر عکس حساب کاربری برای شما فراهم است.' which means you can choose a photo for your profile.",
+              "verdict": 1
+            }
+          ]
+        }
+      }
+    },
+    "counts": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 1
+    },
+    "mode": "f1",
+    "beta": 1.0,
+    "atomicity": "low",
+    "coverage": "high",
+    "score": 0.86
+  }
+}
+{
+  "qid": null,
+  "response": "من دستیار آبانک هستم و برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.<end_of_turn>",
+  "reference": "آبانک یک بانک دیجیتال است که امکان استفاده از تمامی خدمات بانک آینده را به صورت یکپارچه از یک اپلیکیشن موبایل فراهم کرده‌است.",
+  "factual_correctness_score": 0.0,
+  "factual_correctness_details": {
+    "response": "من دستیار آبانک هستم و برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.<end_of_turn>",
+    "reference": "آبانک یک بانک دیجیتال است که امکان استفاده از تمامی خدمات بانک آینده را به صورت یکپارچه از یک اپلیکیشن موبایل فراهم کرده‌است.",
+    "decomposition": {
+      "instruction": "Decompose and break down each of the input sentences into one or more standalone statements. Each statement should be a standalone claim that can be independently verified.\nFollow the level of atomicity and coverage as shown in the examples.",
+      "response": {
+        "input": {
+          "response": "من دستیار آبانک هستم و برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.<end_of_turn>"
+        },
+        "output": {
+          "claims": [
+            "من دستیار آبانک هستم.",
+            "من برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم."
+          ]
+        }
+      },
+      "reference": {
+        "input": {
+          "response": "آبانک یک بانک دیجیتال است که امکان استفاده از تمامی خدمات بانک آینده را به صورت یکپارچه از یک اپلیکیشن موبایل فراهم کرده‌است."
+        },
+        "output": {
+          "claims": [
+            "آبانک یک بانک دیجیتال است.",
+            "آبانک امکان استفاده از تمامی خدمات بانک آینده را فراهم کرده‌است.",
+            "امکان استفاده از تمامی خدمات بانک آینده فراهم شده از یک اپلیکیشن موبایل است."
+          ]
+        }
+      }
+    },
+    "nli": {
+      "instruction": "Your task is to judge each hypothesis statement against the provided CONTEXT. Return verdict=1 if the statement can be directly inferred from the context; otherwise verdict=0.",
+      "a2r": {
+        "input": {
+          "context": "آبانک یک بانک دیجیتال است که امکان استفاده از تمامی خدمات بانک آینده را به صورت یکپارچه از یک اپلیکیشن موبایل فراهم کرده‌است.",
+          "statements": [
+            "من دستیار آبانک هستم.",
+            "من برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم."
+          ]
+        },
+        "output": {
+          "statements": [
+            {
+              "statement": "من دستیار آبانک هستم.",
+              "reason": "The context describes آبانک as a digital bank and does not mention a personal assistant.",
+              "verdict": 0
+            },
+            {
+              "statement": "من برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.",
+              "reason": "The context describes آبانک as a digital bank and does not mention a personal assistant.",
+              "verdict": 0
+            }
+          ]
+        }
+      },
+      "r2a": {
+        "input": {
+          "context": "من دستیار آبانک هستم و برای پاسخ به سوالات شما در مورد این اپلیکیشن در کنار شما هستم.<end_of_turn>",
+          "statements": [
+            "آبانک یک بانک دیجیتال است.",
+            "آبانک امکان استفاده از تمامی خدمات بانک آینده را فراهم کرده‌است.",
+            "امکان استفاده از تمامی خدمات بانک آینده فراهم شده از یک اپلیکیشن موبایل است."
+          ]
+        },
+        "output": {
+          "statements": [
+            {
+              "statement": "آبانک یک بانک دیجیتال است.",
+              "reason": "The context states that I am a chatbot assisting with questions about 'this application' (likely referring to Abank), implying it's a digital bank.",
+              "verdict": 1
+            },
+            {
+              "statement": "آبانک امکان استفاده از تمامی خدمات بانک آینده را فراهم کرده‌است.",
+              "reason": "The context does not explicitly state that Abank provides access to all services of Bank Ayandeh.",
+              "verdict": 0
+            },
+            {
+              "statement": "امکان استفاده از تمامی خدمات بانک آینده فراهم شده از یک اپلیکیشن موبایل است.",
+              "reason": "The context mentions being here to answer questions about 'this application', which is likely a mobile application.",
+              "verdict": 1
+            }
+          ]
+        }
+      }
+    },
+    "counts": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 1
+    },
+    "mode": "f1",
+    "beta": 1.0,
+    "atomicity": "low",
+    "coverage": "high",
+    "score": 0.0
+  }
+}

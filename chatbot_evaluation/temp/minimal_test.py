@@ -2,7 +2,7 @@
 import pandas as pd
 from ragas.dataset_schema import SingleTurnSample
 from chatbot_evaluation.temp.judge import get_local_judge
-from ragas.metrics import ResponseGroundedness, Faithfulness
+from ragas.metrics import ResponseGroundedness, Faithfulness, AnswerRelevancy
 
 evaluator_llm = get_local_judge()
 

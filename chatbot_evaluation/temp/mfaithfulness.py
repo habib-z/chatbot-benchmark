@@ -55,7 +55,7 @@ class FaithfulnessFileBacked(RagasFaithfulness):
     - Persists internals under both ['faithfulness'] and ['faithfulness_details'] on the sample,
       and also into a metric-level cache: self._details_cache[key].
     """
-    base_dir: str = field(default="benchmarks/faithfulness/v1")
+    base_dir: str = field(default="benchmarks/faithfulness/v0")
 
     # metric-level details cache (in case ragas copies the sample internally)
     _details_cache: dict = field(default_factory=dict)
@@ -103,6 +103,8 @@ class FaithfulnessFileBacked(RagasFaithfulness):
         prompt_input = self.statement_generator_prompt.input_model(
             question=question, answer=text
         )
+
+        print("input")
         # record exact input sent to LLM
         self.__dict__["_last_sg_input"] = prompt_input.model_dump()
         statements = await self.statement_generator_prompt.generate(
@@ -110,6 +112,7 @@ class FaithfulnessFileBacked(RagasFaithfulness):
         )
         # record parsed output
         self.__dict__["_last_sg_output"] = statements.model_dump()
+        print(statements)
         return statements
 
     async def _create_verdicts(self, row: dict, statements: list[str], callbacks):
@@ -133,10 +136,13 @@ class FaithfulnessFileBacked(RagasFaithfulness):
           - sample._ragas_details['faithfulness'] and ['faithfulness_details']
           - self._details_cache[key]
         """
+
+        print("_single_turn_ascore")
         row = sample.to_dict()
 
         # 1) generate statements (uses file-backed statement_generator_prompt)
         sg_out = await self._create_statements(row, callbacks)
+        print("sg_out", sg_out)
         statements = list(sg_out.statements or [])
         if not statements:
             details = {
@@ -167,7 +173,7 @@ class FaithfulnessFileBacked(RagasFaithfulness):
 
         # 2) NLI judge (uses file-backed nli_statements_prompt)
         nli_out = await self._create_verdicts(row, statements, callbacks)
-
+        print("nil out")
         # 3) compute the SAME score as base class
         supported = sum(1 for a in nli_out.statements if int(a.verdict) == 1)
         score = supported / len(nli_out.statements) if nli_out.statements else float("nan")
@@ -194,7 +200,7 @@ class FaithfulnessFileBacked(RagasFaithfulness):
         bucket = sample.__dict__.setdefault("_ragas_details", {})
         bucket["faithfulness"] = details
         bucket["faithfulness_details"] = details  # alias
-
+        print("nil out 2")
         # also cache at metric level (handles internal copies)
         key = getattr(sample, "id", None)
         if key is None:

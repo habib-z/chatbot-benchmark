@@ -41,7 +41,7 @@ class FactualFromFiles(MetricWithLLM, SingleTurnMetric):
     File-driven Factual Correctness. Returns F-beta as numeric score and stores raw verdict JSON.
     """
     name: str = "factual_fbeta"
-    base_dir: str = field(default="benchmarks/factual_correctness/v1")
+    base_dir: str = field(default="benchmarks/factual_correctness/v0")
     prompt: PydanticPrompt | None = field(default=None)
     schema: dict = field(default_factory=dict)
     beta: float = 1.0

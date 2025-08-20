@@ -44,12 +44,13 @@ def main(
     if limit is not None:
         samples = samples[:limit]
 
-    metric_grounded = ResponseGroundedness(llm=evaluator_llm)
+
     metric_faith = FaithfulnessFileBacked(llm=evaluator_llm, base_dir=base_dir)
 
     scores = []
     judgments = []
     for s in samples:
+        print(s)
         score = metric_faith.single_turn_score(s)
         scores.append(score)
 

@@ -76,7 +76,7 @@ class Faithfulness(MetricWithLLM, SingleTurnMetric):
       - Saves underlying computation (statements + NLI verdicts) to sample._ragas_details['faithfulness'].
     """
     name: str = "faithfulness"
-    base_dir: str = field(default="benchmarks/faithfulness/v1")
+    base_dir: str = field(default="benchmarks/faithfulness/v0")
 
     statement_generator_prompt: PydanticPrompt = field(init=False)
     nli_statements_prompt: PydanticPrompt = field(init=False)

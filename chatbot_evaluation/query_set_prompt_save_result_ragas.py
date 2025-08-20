@@ -40,7 +40,7 @@ class RefusalFromFiles(MetricWithLLM, SingleTurnMetric):
     Returns refusal_quality in [0,1], computed from atomic outputs via rubric weights.
     """
     name: str = "refusal_quality"
-    base_dir: str = field(default="benchmarks/refusal/v1")
+    base_dir: str = field(default="benchmarks/refusal/v0")
     prompt: PydanticPrompt | None = field(default=None)
     weights: dict = field(default_factory=dict)
     schema: dict = field(default_factory=dict)

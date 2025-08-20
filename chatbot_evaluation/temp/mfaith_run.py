@@ -10,9 +10,9 @@ from file_faithfulness_metric import FaithfulnessFromFiles, load_dataset
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base_dir", default="benchmarks/faithfulness/v1",
+    ap.add_argument("--base_dir", default="benchmarks/faithfulness/v0",
                     help="folder containing statement_generator.* and nli_judge.* files")
-    ap.add_argument("--samples", default="benchmarks/faithfulness/v1/datasets/samples.clientA.v1.jsonl")
+    ap.add_argument("--samples", default="benchmarks/faithfulness/v0/datasets/samples.clientA.v0.jsonl")
     ap.add_argument("--model", default="gpt-4o-mini", help="OpenAI/vLLM-compatible model name")
     args = ap.parse_args()
 
