@@ -4,11 +4,11 @@ import pandas as pd
 from ragas.dataset_schema import SingleTurnSample
 from chatbot_evaluation.temp.judge import get_local_judge
 
-from m_factual_correctness import FactualCorrectnessFileBacked
+from chatbot_evaluation.metrics.m_factual_correctness import FactualCorrectnessFileBacked
 
 # defaults (edit in-file; no argparse required)
 DEFAULT_BENCH_PATH ="../benchmarks/asiyeh/gemma-12b-ref-context.jsonl"      # JSONL with response, reference[, qid]
-DEFAULT_BASE_DIR   = "../benchmarks/factual_correctness/v1"
+DEFAULT_BASE_DIR   = "../prompts/factual_correctness/claim_decomposition/v1"
 DEFAULT_OUT_DIR    = "runs/factual_correctness"
 DEFAULT_LIMIT      = 2
 

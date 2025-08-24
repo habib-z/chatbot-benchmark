@@ -1,0 +1,11 @@
+{
+  "metrics": {
+    "retrieval_precision@1": 0.5462184873949579,
+    "retrieval_recall@1": 0.5462184873949579,
+    "retrieval_ndcg@1": 0.5462184873949579,
+    "retrieval_precision@5": 0.17310924369747893,
+    "retrieval_recall@5": 0.865546218487395,
+    "retrieval_ndcg@5": 0.7246260706823507,
+    "retrieval_mrr": 0.67703081232493
+  }
+}

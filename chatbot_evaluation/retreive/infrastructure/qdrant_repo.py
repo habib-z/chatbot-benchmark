@@ -1,6 +1,6 @@
-# infrastructure/qdrant_repo.py
+
 from qdrant_client import QdrantClient, models
-from retreive.domain.interfaces import VectorDB
+from chatbot_evaluation.retreive.domain.interfaces import VectorDB
 
 class QdrantRepository(VectorDB):
     def __init__(self, host: str, port: int):
@@ -18,3 +18,6 @@ class QdrantRepository(VectorDB):
     def search(self, name, query_vec, top_k):
         res = self.client.search(name, query_vector=query_vec, limit=top_k, with_vectors=False)
         return [{"chunk_id": p.payload["chunk_id"], "score": p.score} for p in res]
+
+    def has_collection(self,collection_name):
+        return self.client.collection_exists(collection_name)

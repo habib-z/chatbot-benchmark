@@ -98,6 +98,6 @@ def analyze_all_beir_datasets(base_dir: str, sample_out_dir: str):
 # 🔧 SET YOUR PATH HERE:
 if __name__ == "__main__":
     analyze_all_beir_datasets(
-        base_dir="beir/",
+        base_dir="datasets/retrieval/beir/",
         sample_out_dir="output_beir_summary"
     )

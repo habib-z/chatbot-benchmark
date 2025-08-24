@@ -1,0 +1,68 @@
+schema_version: 1.0.0
+
+dataset:
+  name: "asiyeh/gemma-12b-ref-context"
+  path: "datasets/asiyeh/gemma-12b-ref-context.jsonl"
+  split: "eval"
+
+model_under_test:
+  name: "persian-llm-v0.9"
+  decoding:
+    temperature: 0.1
+    top_p: 0.95
+    max_tokens: 512
+
+retrieval:
+  index: "arctic-l-v2.0-hnsw"
+  k: 5
+  reranker: "bge-reranker-v2"
+  retrieval_seed: 42
+  embedding:
+    name: "Snowflake/snowflake-arctic-embed-l-v2.0"
+    encode_kwargs:
+      prompt_name: "query"
+      normalize_embeddings: true
+
+judges:
+  llm:
+    # one of: openai, azure_openai, http (local vLLM), ollama (extend later)
+    kind: "http"
+    name: "local-vllm-persian-judge"
+    endpoint: "http://judge.svc.cluster.local:8080/infer"
+    params:
+      temperature: 0.0
+      top_p: 1.0
+  embeddings:
+    name: "Snowflake/snowflake-arctic-embed-l-v2.0"
+    params: {}
+
+prompts:
+  faithfulness:
+    statement_generator: "prompts/faithfulness/statement_generator.instruction.md"
+    nli_judge:          "prompts/faithfulness/nli_judge.instruction.md"
+  factual_correctness:
+    claim_decomposition: "prompts/factual_correctness/claim_decomposition.instruction.md"
+    nli_judge:           "prompts/factual_correctness/nli_judge.instruction.md"
+  answer_relevancy:
+    response_relevance: "prompts/answer_relevancy/response_relevance.instruction.md"
+
+metrics:
+  - name: faithfulness
+    impl: "ragas_filebacked"      # plug your exact class
+    params: {}
+  - name: factual_correctness
+    impl: "ragas_filebacked"
+    params: {mode: "f1", beta: 1.0, atomicity: "low", coverage: "high"}
+  - name: answer_relevancy
+    impl: "ragas_filebacked"
+    params: {strictness: 3}
+
+reporting:
+  primary_kpis: ["faithfulness_mean", "factual_f1", "retrieval_recall@5"]
+  gates:
+    faithfulness_mean: ">= 0.80"
+    factual_f1: ">= 0.70"
+    retrieval_recall@5: ">= 0.80"
+
+output:
+  base_dir: "runs"        # run artifacts will be stored under runs/<run_id>/

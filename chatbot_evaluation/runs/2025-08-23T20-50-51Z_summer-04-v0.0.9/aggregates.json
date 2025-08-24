@@ -1,0 +1,105 @@
+{
+  "overall": {
+    "n": 2,
+    "metrics": {
+      "faithfulness_mean": 0.6666666666666666,
+      "faithfulness_precision_macro": 0.6666666666666666,
+      "faithfulness_precision_micro": 0.7142857142857143,
+      "factual_precision_micro": NaN,
+      "factual_recall_micro": NaN,
+      "factual_f1_micro": NaN
+    },
+    "by_metric": {
+      "faithfulness": {
+        "per_sample": [
+          {
+            "qid": "noid:3268917804599490415",
+            "supported": 4,
+            "total": 4,
+            "precision": 1.0
+          },
+          {
+            "qid": "noid:880967417138018346",
+            "supported": 1,
+            "total": 3,
+            "precision": 0.3333333333333333
+          }
+        ],
+        "micro": {
+          "supported": 5,
+          "total": 7,
+          "precision": 0.7142857142857143
+        }
+      },
+      "factual_correctness": {
+        "per_sample": [],
+        "micro": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": NaN,
+          "recall": NaN,
+          "f1": NaN
+        }
+      }
+    }
+  },
+  "per_dataset": {
+    "generic/qa-abank@1": {
+      "n": 2,
+      "metrics": {
+        "faithfulness_mean": 0.6666666666666666,
+        "faithfulness_precision_macro": 0.6666666666666666,
+        "faithfulness_precision_micro": 0.7142857142857143,
+        "factual_precision_micro": NaN,
+        "factual_recall_micro": NaN,
+        "factual_f1_micro": NaN
+      },
+      "by_metric": {
+        "faithfulness": {
+          "per_sample": [
+            {
+              "qid": "noid:3268917804599490415",
+              "supported": 4,
+              "total": 4,
+              "precision": 1.0
+            },
+            {
+              "qid": "noid:880967417138018346",
+              "supported": 1,
+              "total": 3,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "micro": {
+            "supported": 5,
+            "total": 7,
+            "precision": 0.7142857142857143
+          }
+        },
+        "factual_correctness": {
+          "per_sample": [],
+          "micro": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": NaN,
+            "recall": NaN,
+            "f1": NaN
+          }
+        }
+      }
+    }
+  },
+  "retrieval": {
+    "metrics": {
+      "retrieval_precision@1": 0.5462184873949579,
+      "retrieval_recall@1": 0.5462184873949579,
+      "retrieval_ndcg@1": 0.5462184873949579,
+      "retrieval_precision@5": 0.17310924369747893,
+      "retrieval_recall@5": 0.865546218487395,
+      "retrieval_ndcg@5": 0.7246260706823507,
+      "retrieval_mrr": 0.67703081232493
+    }
+  }
+}

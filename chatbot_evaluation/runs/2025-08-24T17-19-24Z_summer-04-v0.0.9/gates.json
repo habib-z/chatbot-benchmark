@@ -1,0 +1,5 @@
+{
+  "faithfulness_mean": true,
+  "factual_f1_mean": false,
+  "retrieval_recall@5": true
+}

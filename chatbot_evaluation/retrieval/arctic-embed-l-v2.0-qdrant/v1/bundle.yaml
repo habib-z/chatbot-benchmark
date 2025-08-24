@@ -1,0 +1,73 @@
+# retrieval_bundles/arctic-embed-l-v2.0-qdrant/v1/bundle.yaml
+schema_version: 1.0.0
+bundle:
+  id: "arctic-embed-l-v2.0-qdrant@v1"
+  name: "Snowflake Arctic Embed L v2.0 + Qdrant"
+  created_at: "2025-08-22T00:00:00Z"
+  description: >
+    Persian retrieval using Snowflake/snowflake-arctic-embed-l-v2.0 encoder.
+    Qdrant vector DB, cosine/IP distance as configured. No reranker, no BM25.
+
+encoder:
+#  model_id: "Snowflake/snowflake-arctic-embed-l-v2.0"
+  model_id: "/Users/hana/Desktop/hf/snowflake"
+  framework: "sentence-transformers"
+  revision: "main"
+  pooling: "mean"
+  normalize_embeddings: true
+  max_length: 512
+  prompt_profiles:
+    query:   { prefix: "", suffix: "" }
+    passage: { prefix: "", suffix: "" }
+
+text_normalization:
+  unicode_nfkc: true
+  strip: true
+  collapse_whitespace: true
+  lowercase: false
+  persian_char_normalization:
+    normalize_arabic_yeh_to_persian_ye: true
+    normalize_arabic_kaf_to_persian_ke: true
+    remove_tatweel: true
+    normalize_zwnj: "keep"
+  digits: { normalize_to: "none" }
+  punctuation: { remove: false }
+
+corpus:
+  id: "client-docs/abank@2025.08.20"
+  path: "../corpora/abank/v2025.08.20/documents.jsonl"
+  sha256: "PUT_SHA256_OF_DOCS_JSONL_HERE"
+  size_docs: 13427
+  language: ["fa"]
+  doc_schema: { id_field: "doc_id", text_field: "text", meta_fields: ["title","url","section"] }
+
+index:
+  backend: "qdrant"
+  metric: "cosine"                     # typical for normalized vectors (or "dot" if you prefer)
+  dim: "auto"                          # resolve at runtime from encoder (e.g., 1024)
+  qdrant:
+    host: "185.255.91.144"
+    port: 30081
+    prefer_grpc: true
+    collection_prefix: "abank"         # evaluator will suffix with experiment name/timestamp
+    shard_number: 1
+    replication_factor: 1
+    on_disk: true
+  search:
+    default_top_k: 5
+    params:
+      ef: 128                          # HNSW ef at search (Qdrant)
+  artifacts:
+    snapshot_uri: null                 # fill if you create and store Qdrant snapshots
+    code_sha256: "PUT_SHA256_OF_INDEX_BUILDER_SCRIPT"
+
+hybrid:
+  bm25: null
+  reranker: null
+
+defaults:
+  retrieval_top_k: 5
+  return_scores: true
+  score_name: "cosine"
+
+notes: "Initial Qdrant-based retrieval for Abank v2025.08.20 corpus. No reranker."

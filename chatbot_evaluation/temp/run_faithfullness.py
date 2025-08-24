@@ -2,16 +2,15 @@ import json
 from pathlib import Path
 import pandas as pd
 from ragas.dataset_schema import SingleTurnSample
-from ragas.metrics import ResponseGroundedness
 from chatbot_evaluation.temp.judge import get_local_judge
-from chatbot_evaluation.temp.mfaithfulness import FaithfulnessFileBacked
+from chatbot_evaluation.metrics.m_faithfulness import FaithfulnessFileBacked
 
 # NOTE: this import was unused and can cause confusion; remove it.
 # from faithfulness_from_files import Faithfulness
 
 # -------- defaults (edit here; no CLI required) --------
 DEFAULT_BENCH_PATH = "../benchmarks/asiyeh/gemma-12b-ref-context.jsonl"
-DEFAULT_BASE_DIR = "../benchmarks/faithfulness/v1"
+DEFAULT_BASE_DIR = "../prompts/faithfulness/"
 DEFAULT_OUTPUT_DIR = "runs/faithfulness"
 
 def _to_list(x):
@@ -60,8 +59,11 @@ def main(
         # 2) fallback to metric-level cache (handles internal copies)
         if not details:
             key = getattr(s, "id", None)
+            print(f"key is: {key}")
             if key is None:
                 key = (hash(s.user_input), hash(s.response))
+
+            print(f"key is: {key}")
             details = getattr(metric_faith, "_details_cache", {}).get(key, {})
 
         judgments.append({

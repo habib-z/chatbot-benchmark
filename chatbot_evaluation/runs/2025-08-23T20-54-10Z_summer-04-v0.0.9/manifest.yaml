@@ -1,0 +1,104 @@
+schema_version: 1.0.0
+run:
+  id: 2025-08-23T20-54-10Z_summer-04-v0.0.9
+  started_at: '2025-08-23T20:54:10Z'
+  git_commit: '9840895'
+suite:
+  name: summer-04-v0.0.9
+  version: 1
+  notes: ''
+datasets:
+- id: generic/qa-abank@1
+  path: ../datasets/generic/qa-abank/v1/data.jsonl
+  sha256: c85674cad083fa23688533332a76148e4d4fe33cc1589066ea69b27366a6e0fe
+  size: 3
+  schema: qa_v1
+model_under_test:
+  name: gemma-3-12b-w4a16
+  decoding:
+    temperature: 0.1
+    top_p: 0.95
+    max_tokens: 512
+retrieval:
+  bundle:
+    id: retrieval/arctic-embed-l-v2.0-qdrant/v1/bundle.yaml
+    file: /Users/hana/Desktop/projects/efarda/chatbot_evaluation/chatbot_evaluation/retrieval/arctic-embed-l-v2.0-qdrant/v1/bundle.yaml
+    sha256: 5d48fdb3f268a1bdb4e3f15a9ba41d4c93d7e2cbcccd7693072bcfeb49815896
+  dataset:
+    name: abank@v1
+    path: ../datasets/retrieval/abank/v1/hf/
+  eval:
+    top_k:
+    - 1
+    - 5
+    metrics:
+    - recall@k
+    - mrr@k
+    - ndcg@k
+  couple_into_generation: false
+generation:
+  autofill_answers: false
+  chat_api:
+    base_url: http://localhost:8080
+    timeout_s: 30
+judges:
+  llm:
+    id: local-vllm-persian-judge/gemma-3-12b@1
+    file: ../judges/llm/local-vllm-persian-judge/gemma-3-12b/v1/config.yaml
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  embeddings:
+    id: snowflake@1
+    file: ../judges/embeddings/snowflake/v1/config.yaml
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+system_prompts:
+  assistant_core:
+    id: assistant_core/abank@1
+    file: ../app_prompts/assistant_core/abank/v1/system.md
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  referral_remover:
+    id: referral_remover/general@1
+    file: ../app_prompts/referral_remover/general/v1/system.md
+    sha256: b64828c362bfe357761679374962ee2799f555e9c781a7fd128c490fb21106a9
+prompts:
+  faithfulness:
+    base_dir: ../prompts/faithfulness
+    statement_generator:
+      id: faithfulness/statement_generator@1
+      file: ('faithfulness/statement_generator@1', PosixPath('../prompts/faithfulness/statement_generator/v1/instruction.md'))
+    nli_judge:
+      id: faithfulness/nli_judge@1
+      file: ('faithfulness/nli_judge@1', PosixPath('../prompts/faithfulness/nli_judge/v1/instruction.md'))
+  factual_correctness:
+    base_dir: ../prompts/factual_correctness
+    claim_decomposition:
+      id: factual_correctness/claim_decomposition@1
+      file: ('factual_correctness/claim_decomposition@1', PosixPath('../prompts/factual_correctness/claim_decomposition/v1/instruction.md'))
+    nli_judge:
+      id: factual_correctness/nli_judge@1
+      file: ('factual_correctness/nli_judge@1', PosixPath('../prompts/factual_correctness/nli_judge/v1/instruction.md'))
+metrics:
+- name: faithfulness
+  impl_id: faithfulness/ragas-filebacked@1
+  params: {}
+  datasets:
+  - generic/qa-abank@1
+- name: factual_correctness
+  impl_id: factual_correctness/ragas-filebacked@1
+  params:
+    mode: f1
+    beta: 1.0
+    atomicity: low
+    coverage: high
+  datasets:
+  - generic/qa-abank@1
+reporting:
+  primary_kpis:
+  - faithfulness_mean
+  - factual_f1_mean
+  - retrieval_recall@5_mean
+  gates:
+    faithfulness_mean: '>= 0.80'
+    factual_f1_mean: '>= 0.70'
+    retrieval_recall@5: '>= 0.85'
+output:
+  base_dir: ../runs

@@ -11,11 +11,11 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
-from m_answer_relevancy import AnswerRelevancy
+from chatbot_evaluation.metrics.m_answer_relevancy import AnswerRelevancy
 
 # -------- defaults (edit here; no CLI required) --------
 DEFAULT_BENCH_PATH ="../benchmarks/asiyeh/gemma-12b-ref-context.jsonl" # JSONL with user_input, response[, qid]
-DEFAULT_BASE_DIR   = "../benchmarks/answer_relevancy/v1"
+DEFAULT_BASE_DIR   = "../prompts/answer_relevancy/response_relevance/v1"
 DEFAULT_OUT_DIR    = "runs/answer_relevancy"
 DEFAULT_LIMIT      = 2
 DEFAULT_STRICTNESS = 3

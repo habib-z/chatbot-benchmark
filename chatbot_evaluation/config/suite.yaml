@@ -1,0 +1,68 @@
+suite_version: 1
+name: "summer-04-v0.0.9"
+
+datasets:
+  - id: "generic/qa-abank@1"     #QA dataset (QADS)
+
+retrieval:
+  bundle: "retrieval/arctic-embed-l-v2.0-qdrant/v1/bundle.yaml"
+  dataset:
+    name: "abank@v1"
+    path: "../datasets/retrieval/abank/v1/hf/"
+  eval:
+    top_k: [1,5]
+    metrics: ["recall@k","mrr@k","ndcg@k"]   # informational; we compute P/Recall/NDCG+MRR
+  couple_into_generation: false
+
+generation:
+  autofill_answers: false         # if true, fill missing 'response' via our chatbot API
+  chat_api:
+    base_url: "http://localhost:8080"
+    timeout_s: 30
+
+model_under_test:
+  name: "gemma-3-12b-w4a16"
+  decoding: {temperature: 0.1, top_p: 0.95, max_tokens: 512}
+
+judges:
+  llm: "local-vllm-persian-judge/gemma-3-12b@1"
+  embeddings: "snowflake@1"
+
+system_prompts:
+  assistant_core: "assistant_core/abank@1"
+  referral_remover: "referral_remover/general@1"
+
+prompts:
+  faithfulness:
+    statement_generator: "faithfulness/statement_generator@1"
+    nli_judge:           "faithfulness/nli_judge@1"
+  factual_correctness:
+    claim_decomposition: "factual_correctness/claim_decomposition@1"
+    nli_judge:           "factual_correctness/nli_judge@1"
+  answer_relevancy:
+    response_relevance: "answer_relevancy/response_relevance@1"
+
+metrics:
+  - name: "answer_relevancy"
+    impl: "answer_relevancy/ragas-filebacked@1"
+    params: { strictness: 3 }
+    datasets: [ "generic/qa-abank@1" ]
+
+  - name: "faithfulness"
+    impl: "faithfulness/ragas-filebacked@1"
+    params: {}
+    datasets: ["generic/qa-abank@1"]
+  - name: "factual_correctness"
+    impl: "factual_correctness/ragas-filebacked@1"
+    params: {mode: "f1", beta: 1.0, atomicity: "low", coverage: "high"}
+    datasets: ["generic/qa-abank@1"]
+
+reporting:
+  primary_kpis: ["faithfulness_mean", "factual_f1_mean", "retrieval_recall@5_mean"]
+  gates:
+    faithfulness_mean: ">= 0.80"
+    factual_f1_mean: ">= 0.70"
+    retrieval_recall@5: ">= 0.85"
+
+output:
+  base_dir: "../runs"

@@ -172,4 +172,5 @@ tmp/
 *_pb2_grpc.py
 *.tgz
 private/
-/chatbot_evaluation/beir
+/chatbot_evaluation/datasets/retrieval/beir
+

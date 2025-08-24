@@ -2,7 +2,7 @@ import json
 
 import json
 from pathlib import Path
-p=Path("../benchmarks/faithfulness/v1/statement_generator.examples.jsonl")
+p=Path("../prompts/faithfulness/statement_generator/v1/statement_generator.examples.jsonl")
 out = p#.with_name(p.stem + ".compact.jsonl")
 
 with p.open("r", encoding="utf-8") as f, out.open("w", encoding="utf-8") as o:

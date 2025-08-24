@@ -1,7 +1,7 @@
 # application/ingest_docs.py
-from retreive.domain.entities import Document
-from retreive.domain.interfaces import Embedder, VectorDB
-from retreive.infrastructure.logger import get_logger
+from chatbot_evaluation.retreive.domain.entities import Document
+from chatbot_evaluation.retreive.domain.interfaces import Embedder, VectorDB
+from chatbot_evaluation.retreive.infrastructure.logger import get_logger
 from tqdm import tqdm
 import time
 

@@ -1,6 +1,5 @@
-# infrastructure/sentence_embedder.py
+from chatbot_evaluation.retreive.domain.interfaces import Embedder
 from sentence_transformers import SentenceTransformer
-from retreive.domain.interfaces import Embedder
 
 class SentenceEmbedder(Embedder):
     def __init__(self, model_name: str, device: str):
